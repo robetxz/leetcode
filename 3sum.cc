@@ -1,4 +1,4 @@
-// O(nlogn) + O(n**2)
+// O(nlogn) + O(n^2)
 class Solution {
  public:
   vector<vector<int>> threeSum(vector<int>& nums) {
