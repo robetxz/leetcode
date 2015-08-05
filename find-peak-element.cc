@@ -6,11 +6,14 @@ class Solution {
       m = s + (e - s) / 2;
       if((m == 0 || num[m-1] < num[m])
          && ((m == num.size() - 1) || num[m] > num[m+1])) {
-          return m;
-      } else if(m > 0 && num[m-1] > num[m]) {
-        e = m - 1;
-      } else {
+        return m;
+      } else if(m == 0) {
+        if(num[1] > num[0]) s = 1;
+        else e = 0;
+      } else if(num[m-1] < num[m]) {
         s = m + 1;
+      } else {
+        e = m - 1;
       }
     }
     return m;
