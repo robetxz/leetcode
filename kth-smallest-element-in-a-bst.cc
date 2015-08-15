@@ -29,4 +29,19 @@ class Solution {
       }
     }
   }
+  // O(h * N)
+  int kthSmallest(TreeNode *root, int k) {
+    int cnt = count(root->left);
+    if(k <= cnt) {
+      return kthSmallest(root->left, k);
+    } else if(k > cnt + 1) {
+      return kthSmallest(root->right, k - cnt - 1);
+    } else {
+      return root->val;
+    }
+  }
+  int count(TreeNode *v) {
+    if(v == NULL) return 0;
+    return count(v->left) + count(v->right) + 1;
+  }
 };
