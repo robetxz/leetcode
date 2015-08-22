@@ -14,9 +14,10 @@ class Solution {
     while(N) {
       long long r = N / M;
       long long m = N % M;
-      if(table.count(N)) {
+      auto it = table.find(N);
+      if(it != table.end()) {
         result += ")";
-        result.insert(result.begin() + table[N], '(');
+        result.insert(result.begin() + it->second, '(');
         if(negative) result.insert(result.begin(), '-');
         return result;
       }
