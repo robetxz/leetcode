@@ -26,4 +26,18 @@ class Solution {
       if(node->right) q.push(make_pair(node->right, dep + 1));
     }
   }
+
+  int minDepth(TreeNode* root) {
+    if(root == NULL) return 0;
+    if(root->left == NULL && root->right == NULL) return 1;
+    int l = minDepth(root->left), r = minDepth(root->right);
+    if(root->left == NULL) {
+      return r + 1;
+    } else
+      if(root->right == NULL) {
+        return l + 1;
+      } else {
+        return min(l, r) + 1;
+      }
+  }
 };
