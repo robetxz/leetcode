@@ -15,7 +15,7 @@ class Solution {
     if(root->next) {
       root->right->next = root->next->left;
     }
-    connect(root->left);
     connect(root->right);
+    connect(root->left);
   }
 };
