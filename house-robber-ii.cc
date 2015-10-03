@@ -19,7 +19,6 @@ class Solution {
     if(nums.size() == 1) return nums[0];
     vector<int> nums2(nums.begin() + 1, nums.end());
     vector<int> nums3(nums.begin(), nums.end() - 1);
-    int r1 = foo(nums2), r2 = foo(nums3);
-    return max(r1, r2);
+    return max(foo(nums2), foo(nums3));
   }
 };
