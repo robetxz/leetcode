@@ -19,7 +19,7 @@ class Solution {
             left = right;
             int tmp = vp[right].back();
             vp[right].pop_back();
-            if(vp[right].size() > 1) vp[right].pop_back();
+            for(auto & vv : vp[right]) if(B.count(vv)) return false;
             right = tmp;
             if(B.count(right)) return false;
             B.insert(left);
