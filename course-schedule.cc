@@ -1,10 +1,9 @@
 class Solution {
 
  public:
-  // line 22: to handle case[[0, 1], [1, 3], [3, 1], [3, 2]]
   bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) {
     vector<vector<int>> vp; vp.resize(numCourses);
-    for(auto & pr : prerequisites) vp[pr.first].push_back(pr.second);
+    for(auto & pr : prerequisites) vp[pr.second].push_back(pr.first);
     while(1) {
       // every round
       bool isEmpty = true;
