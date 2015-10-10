@@ -11,7 +11,7 @@
 class Solution {
 
  public:
-  TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+  TreeNode* inorderSuccessor_binarytree(TreeNode* root, TreeNode* p) {
     if(root == NULL || p == NULL) return NULL;
     stack<TreeNode *> stk;
     TreeNode *it = root;
@@ -28,6 +28,27 @@ class Solution {
         }
       }
       if(tmp == p) return stk.empty() ? NULL : stk.top();
+    }
+  }
+
+  // use property of BST and no stack, O(h)
+  TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+    if(root == NULL || p == NULL) return NULL;
+    if(p->right) {
+      return findMin(p->right);
+    } else {
+      TreeNode *succ;
+      while(root) {
+        if(root->val < p->val) {
+          root = root->right;
+        } else if(root->val > p->val) {
+          succ = root;
+          root = root->left;
+        } else {
+          break;
+        }
+      }
+      return succ;
     }
   }
 };
