@@ -12,7 +12,6 @@ class Solution {
 
  public:
   int closestValue(TreeNode* root, double target) {
-    if(root->left == NULL && root->right == NULL) return root->val;
     if(target < root->val) {
       if(root->left == NULL) return root->val;
       int ln = closestValue(root->left, target);
