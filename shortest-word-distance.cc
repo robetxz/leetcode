@@ -9,10 +9,10 @@ class Solution {
       }
     }
     int dis = INT_MAX;
-    for(auto & indx1 : M[word1]) {
-      for(auto & indx2 : M[word2]) {
-        dis = min(dis, abs(indx1 - indx2));
-      }
+    int i = 0, j = 0;
+    while(i < M[word1].size() && j < M[word2].size()) {
+      dis = min(dis, abs(M[word1][i] - M[word2][j]));
+      M[word1][i] < M[word2][j] ? i ++ : j ++;
     }
     return dis;
   }
