@@ -16,4 +16,17 @@ class Solution {
     }
     return dis;
   }
+
+  // O(1) space
+  int shortestDistance(vector<string>& words, string word1, string word2) {
+    int x = -1, y = -1, dis = INT_MAX;
+    for(int i = 0; i < words.size(); ++i) {
+      if(words[i] == word1) x = i;
+      if(words[i] == word2) y = i;
+      if(x != -1 && y != -1) {
+        dis = min(dis, abs(x - y));
+      }
+    }
+    return dis;
+  }
 };
